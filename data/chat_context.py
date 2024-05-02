@@ -434,7 +434,9 @@ class ChatContext:
             ]
             for path in prompt_sources:
                 if path is not None:
-                    if path.startswith('/') or path.startswith('..'):
+                    if path.startswith('/') and not path.startswith(curr_dir):
+                         raise ValueError(f"Invalid path specified for system prompt: {path}")
+                    if '..' in path: 
                         raise ValueError(f"Invalid path specified for system prompt: {path}")
                     if os.path.exists(path):
                         with open(path, 'r') as f:
