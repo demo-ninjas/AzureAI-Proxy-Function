@@ -23,7 +23,7 @@ class ChatCitation:
         if self.title is not None: out["title"] = self.title
         if self.start is not None: out["start"] = self.start
         if self.end is not None: out["end"] = self.end
-        if self.replace_part is not None: out["replace_part"] = self.replace_part
+        if self.replace_part is not None: out["replace-part"] = self.replace_part
         return out
     
     def from_data_source_citation(datasorce_citation:dict) -> 'ChatCitation': 
